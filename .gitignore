@@ -1,0 +1,128 @@
+# =================================================================
+#  SWISSYAKOUBIDEV - GLOBAL .GITIGNORE (CED ECOSYSTEM)
+#  Projet: Club Empreinte Digitale & HalalTech Infrastructure
+#  Stack: Node.js + Python + PostgreSQL + Redis
+#  Sécurité: Maximale (Secrets, Env, Build, OS, IDE)
+# =================================================================
+
+# 1. SECRETS & ENVIRONNEMENT (CRITIQUE - NE JAMAIS PUBLIER)
+# Fichiers contenant mots de passe, clés API, configs DB
+.env
+.env.local
+.env.development
+.env.production
+.env.swiss
+.env.*.local
+*.pem
+*.key
+secrets.json
+config.private.json
+credentials.json
+service-account.json
+db_password.txt
+.master_key
+
+# 2. NODE.JS (Pour Frontend React & Backend Express)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json (Décommente si tu veux ignorer les locks, sinon garde-les)
+yarn.lock
+pnpm-lock.yaml
+
+# 3. PYTHON (Pour scripts Data, AI, Epi.swissyakoubidev.ch)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+Pipfile.lock
+venv/
+ENV/
+env/
+.venv/
+.pytest_cache/
+.mypy_cache/
+
+# 4. BASE DE DONNÉES & CACHE (PostgreSQL, Redis, SQLite)
+# On ne garde jamais les données brutes dans le code
+*.db
+*.sqlite
+*.sqlite3
+dump.rdb
+appendonly.aof
+*.sql.gz
+database_dump.sql
+local_db_data/
+
+# 5. BUILD & COMPILATION (Outputs)
+# Ces fichiers sont générés automatiquement, inutiles dans Git
+dist/
+build/
+.next/
+out/
+coverage/
+.nyc_output/
+*.min.js
+*.min.css
+tsconfig.tsbuildinfo
+
+# 6. SYSTÈMES D'EXPLOITATION (Propreté)
+.DS_Store         # macOS
+.DS_Store?        # macOS
+._*               # macOS Spotlight
+.AppleDouble      # macOS
+.LSOverride       # macOS
+Thumbs.db         # Windows
+.DS_Store         # Linux/Samba
+Desktop.ini       # Windows
+
+# 7. IDE & ÉDITEURS (VS Code, IntelliJ, Vim)
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# 8. LOGS & TEMPORAIRES
+logs/
+*.log
+tmp/
+temp/
+.cache/
+.parcel-cache/
+
+# 9. SPÉCIFIQUE INFOMANIAC / SWISS (Suggéré pour ton écosystème)
+.kdrive-cache/
+swiss-transfer-temp/
+*.bak
+
+# 10. SÉCURITÉ SPÉCIFIQUE CED
+# Fichiers de clés privées pour chiffrement
+private_key.pem
+id_rsa
+id_rsa.pub (Attention: parfois on garde .pub, mais mieux vaut ignorer)
+*.crt
+*.cer
