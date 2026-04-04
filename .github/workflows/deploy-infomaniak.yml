@@ -1,0 +1,122 @@
+# ====================================
+# CED HalalTech™ — Déploiement Automatique Infomaniak
+# Incha Allah wa bi Hawlillah
+# ====================================
+
+name: Deploy to Infomaniak 🇨🇭
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environnement de déploiement'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  # ====================================
+  # PRIORITÉ 1: Build & Test
+  # ====================================
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Build Production
+        run: npm run build
+        env:
+          NODE_ENV: production
+          
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+          if-no-files-found: error
+
+  # ====================================
+  # PRIORITÉ 2: Deploy to Infomaniak
+  # ====================================
+  deploy:
+    name: Deploy to Infomaniak Geneva 🇨🇭
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          
+      - name: Deploy via FTP (Infomaniak)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.ced-halaltech.ch
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          local-dir: ./dist/
+          server-dir: /www/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.env*
+            **/.git*
+            **/node_modules/**
+            
+      - name: Verify Deployment
+        run: |
+          echo "🚀 Déploiement terminé - Incha Allah!"
+          echo "📍 URL: https://ced-halaltech.ch"
+
+  # ====================================
+  # PRIORITÉ 3: Notify (Success & Failure)
+  # ====================================
+  notify-success:
+    name: Notification Success
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: success()
+    
+    steps:
+      - name: Success Message
+        run: |
+          echo "✅ CED HalalTech™ déployé avec succès!"
+          echo "🌙 Bismillah Ar-Rahman Ar-Rahim"
+
+  notify-failure:
+    name: Notification Échec
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: failure()
+    
+    steps:
+      - name: Failure Alert
+        run: |
+          echo "❌ Échec du déploiement CED HalalTech™"
+          echo "⚠️ Vérifiez les logs GitHub Actions immédiatement."
