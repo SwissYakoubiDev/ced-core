@@ -58,8 +58,7 @@ npm install
 
 # Configurer les variables d'environnement
 cp .env.example .env
-# ⚠️ Éditez .env avec vos clés API et URLs de base de données
-3. Base de Données
+# ⚠️ Éditez .env avec vos clés API et URLs de base de données                                       3. Base de Données
 bash
 Copier
 # Pousser le schéma vers la DB
