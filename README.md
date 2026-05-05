@@ -48,73 +48,70 @@ Une stack moderne, performante et sécurisée, hébergée 100% en Suisse.
 - PostgreSQL local ou accès à une instance distante
 
 ### 2. Installation
-```bash
-# Cloner le dépôt
-git clone https://github.com/SwissYakoubiDev/ced-core.git
-cd ced-core
+Exécutez les commandes suivantes dans votre terminal :
+- `git clone https://github.com/SwissYakoubiDev/ced-core.git`
+- `cd ced-core`
+- `npm install`
+- `cp .env.example .env`
+- *Important :* Éditez le fichier `.env` avec vos clés API et URLs de base de données.
 
-# Installer les dépendances
-npm install
+### 3. Base de Données
+- `npm run db:push` (Pousse le schéma vers la DB)
+- `npm run db:generate` (Optionnel : Génère les migrations)
 
-# Configurer les variables d'environnement
-cp .env.example .env
-# ⚠️ IMPORTANT : Éditez .env avec vos clés API et URLs de base de données
-3. Base de Données
-bash
-Copier
-# Pousser le schéma vers la DB
-npm run db:push
+### 4. Lancement
+- `npm run dev` (Mode Développement)
+- `npm run build` (Build Production)
 
-# (Optionnel) Générer les migrations
-npm run db:generate
-4. Lancement
-bash
-Copier
-# Mode Développement
-npm run dev
+---
 
-# Build Production
-npm run build
-📂 Structure du Projet
-plain text
-Copier
-ced-core/
-├── .github/workflows/   # CI/CD (Déploiement auto Infomaniak)
-├── client/              # Frontend React/TypeScript
-│   ├── src/
-│   │   ├── components/  # Composants UI (Banking, IA, Fiqh...)
-│   │   ├── pages/       # Pages principales
-│   │   └── lib/         # Utilitaires & Hooks
-├── server/              # Backend Node.js
-│   ├── routes.ts        # Points d'entrée API
-│   ├── db.ts            # Config DB
-│   └── openai.ts        # Logique IA
-├── shared/              # Schémas DB partagés (Drizzle)
-├── docs/                # Documentation technique
-└── package.json
-🔄 Déploiement Continu (CI/CD)
-Ce projet utilise GitHub Actions pour déployer automatiquement toute modification sur la branche main vers les serveurs Infomaniak.
+## 📂 Structure du Projet
 
-Déclencheur : Push sur main ou lancement manuel.
-Processus : Build → Tests → Déploiement FTP/SFTP → Notification.
-Configuration : Voir .github/workflows/deploy-infomaniak.yml.
-Note : Les secrets (FTP_USERNAME, FTP_PASSWORD) doivent être configurés dans les paramètres du dépôt GitHub.
-🤲 Conformité & Éthique
-Notre code est développé avec l'intention (Niyyah) de servir le bien commun.
+Architecture des dossiers principaux :
+- `.github/workflows/` : CI/CD (Déploiement auto Infomaniak)
+- `client/` : Frontend React/TypeScript (`src/components`, `src/pages`, `src/lib`)
+- `server/` : Backend Node.js (`routes.ts`, `db.ts`, `openai.ts`)
+- `shared/` : Schémas DB partagés (Drizzle)
+- `docs/` : Documentation technique
+- `package.json` : Configuration du projet
 
-✅ Zéro Riba : Aucun algorithme de calcul d'intérêt.
-✅ Zéro Gharar : Transparence totale des données et transactions.
-✅ Protection des données : Hébergement suisse, respect strict de la LPD.
-✅ Open Source (Partiel) : Certains modules sont propriétaires pour garantir la sécurité financière.
-📄 Licence & Propriété Intellectuelle
+---
+
+## 🔄 Déploiement Continu (CI/CD)
+
+Ce projet utilise GitHub Actions pour déployer automatiquement toute modification sur la branche `main` vers les serveurs Infomaniak.
+
+- **Déclencheur :** Push sur `main` ou lancement manuel.
+- **Processus :** Build → Tests → Déploiement FTP/SFTP → Notification.
+- **Configuration :** Voir le fichier `.github/workflows/deploy-infomaniak.yml`.
+- **Note :** Les secrets (`FTP_USERNAME`, `FTP_PASSWORD`) doivent être configurés dans les paramètres du dépôt GitHub.
+
+---
+
+## 🤲 Conformité & Éthique
+
+Notre code est développé avec l'intention (*Niyyah*) de servir le bien commun.
+
+- ✅ **Zéro Riba :** Aucun algorithme de calcul d'intérêt.
+- ✅ **Zéro Gharar :** Transparence totale des données et transactions.
+- ✅ **Protection des données :** Hébergement suisse, respect strict de la LPD.
+- ✅ **Open Source (Partiel) :** Certains modules sont propriétaires pour garantir la sécurité financière.
+
+---
+
+## 📄 Licence & Propriété Intellectuelle
+
 © 2024-2026 Yakoubi Yamina. Tous droits réservés.
 
-Ce projet est PROPRIÉTAIRE. La reproduction, la distribution ou l'utilisation commerciale de ce code sans autorisation écrite préalable est strictement interdite. Voir le fichier LICENSE pour les détails juridiques complets.
+Ce projet est **PROPRIÉTAIRE**. La reproduction, la distribution ou l'utilisation commerciale de ce code sans autorisation écrite préalable est strictement interdite. Voir le fichier `LICENSE` pour les détails juridiques complets.
 
-📞 Contact & Support
-Direction : Yakoubi Yamina
-Email Technique : direction@ced-halaltech.ch
-Site Web : ced-halaltech.ch
-Localisation : Genève, Suisse 🇨🇭
+---
 
-Développé avec ❤️ et ☕ par l'équipe CED HalalTech.
+## 📞 Contact & Support
+
+**Direction :** Yakoubi Yamina  
+**Email Technique :** direction@ced-halaltech.ch  
+**Site Web :** [ced-halaltech.ch](https://ced-halaltech.ch)  
+**Localisation :** Genève, Suisse 🇨🇭
+
+*Développé avec ❤️ et ☕ par l'équipe CED HalalTech.*
