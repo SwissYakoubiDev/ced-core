@@ -58,7 +58,8 @@ npm install
 
 # Configurer les variables d'environnement
 cp .env.example .env
-# ⚠️ Éditez .env avec vos clés API et URLs de base de données                                       3. Base de Données
+# ⚠️ IMPORTANT : Éditez .env avec vos clés API et URLs de base de données
+3. Base de Données
 bash
 Copier
 # Pousser le schéma vers la DB
@@ -96,9 +97,8 @@ Ce projet utilise GitHub Actions pour déployer automatiquement toute modificati
 
 Déclencheur : Push sur main ou lancement manuel.
 Processus : Build → Tests → Déploiement FTP/SFTP → Notification.
-Configuration : Voir .github/workflows/deploy-infomaniak.yml
+Configuration : Voir .github/workflows/deploy-infomaniak.yml.
 Note : Les secrets (FTP_USERNAME, FTP_PASSWORD) doivent être configurés dans les paramètres du dépôt GitHub.
-
 🤲 Conformité & Éthique
 Notre code est développé avec l'intention (Niyyah) de servir le bien commun.
 
@@ -116,4 +116,5 @@ Direction : Yakoubi Yamina
 Email Technique : direction@ced-halaltech.ch
 Site Web : ced-halaltech.ch
 Localisation : Genève, Suisse 🇨🇭
+
 Développé avec ❤️ et ☕ par l'équipe CED HalalTech.
