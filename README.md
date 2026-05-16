@@ -135,3 +135,5 @@ Localisation : Genève, Suisse 🇨🇭
 "Qu'Allah mette la Barakah dans chaque ligne de code et dans chaque projet partagé ici."
 
 Développé avec ❤️ et ☕ par l'équipe CED HalalTech.
+
+
