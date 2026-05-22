@@ -12,23 +12,21 @@
 
 ---
 
-## 🌐 Vue d'ensemble
+> **🌟 Fondation Spirituelle & Éthique**
+> Ce projet est guidé par une **Déclaration d'Intention (Niyyah)** : servir uniquement la Face d'Allah, dans la sincérité et le bénéfice pour la communauté.
+> - **Principes :** Tawhîd, Ikhlas (Sincérité), Nafa' (Utilité), 'Adl (Justice).
+> - **Règle de Déploiement :** Seul le code **audité et validé** (tagué `AUDITED`, ex: `v1.0-AUDITED`) est déployé en production.
+> - *Voir le dossier* [00_Uniquement_pour_Allah](00_Uniquement_pour_Allah) *pour l'engagement complet.*
 
-Ce dépôt (`ced-core`) est le **cœur technique** de l'écosystème CED HalalTech. Il contient l'architecture de référence, le code source principal (Frontend/Backend/DB) et les configurations de déploiement pour nos plateformes.
-
-### 📡 Réseau d'Infrastructures (SwissYakoubiDev)
-
-Ce socle technique dessert 5 domaines stratégiques, tous hébergés souverainement en Suisse :
-
-| Domaine | Rôle Principal | Statut | URL |
-| :--- | :--- | :---: | :--- |
-| **swissyakoubidev.ch** | Identité Corporate & Racine | 🟢 Actif | [Voir](https://swissyakoubidev.ch) |
-| **studio.swissyakoubidev.ch** | Vitrine Solutions & Services | 🟠 Construction | [Voir](https://studio.swissyakoubidev.ch) |
-| **lab.swissyakoubidev.ch** | R&D, Tests & Prototypage IA | 🔵 Privé | *Interne* |
-| **fullstack.swissyakoubidev.ch** | Démos Techniques & Portfolio | 🔵 Privé | *Interne* |
-| **dev.swissyakoubidev.ch** | Documentation API & DevTools | 🔵 Privé | *Interne* |
-
-> **Souveraineté Numérique :** L'ensemble de ces infrastructures est déployé sur **Infomaniak (Genève)**, garantissant une conformité totale à la LPD et une indépendance vis-à-vis des GAFAM.
+## 📋 Table des Matières
+- [Vue d'ensemble](#vue-densemble)
+- [Arborescence complète](#arborescence-complète)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Développement](#développement)
+- [Architecture technique](#architecture-technique)
+- [Déploiement](#déploiement)
+- [Conformité Sharia](#conformité-sharia)
 
 ---
 
