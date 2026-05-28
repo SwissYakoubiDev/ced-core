@@ -43,7 +43,17 @@ Une stack moderne, performante et souveraine, conçue pour l'excellence et la ma
 *   **Éthique** : Zéro Riba (Intérêt), Zéro Gharar (Incertitude), Conformité LPD/RGPD stricte.
 
 ---
+### 📊 Métriques du Cœur Technique (Juillet 2025)
+Ce dépôt (`ced-core`) est le moteur qui génère et alimente l'ensemble de l'écosystème visible.
 
+| Métrique | Valeur | Impact |
+| :--- | :--- | :--- |
+| **Pages Générées** | **465+** | Modules Bank, Takaful, Academy, IA |
+| **Lignes de Code** | **156 000+** | TypeScript, React, Node.js, SQL |
+| **Règles Fiqh** | **27 446+** | Moteur de conformité "Zéro Riba" intégré |
+| **Langues** | **91** | Support i18n complet (RTL/LTR) |
+
+> 💡 **Note :** Ce dépôt contient le code source brut. Pour la documentation publique, la vision stratégique et le détail des modules, veuillez consulter le dépôt **[club-empreinte-digitale](https://github.com/PrettyhowQ/club-empreinte-digitale)**.
 ## 🚀 Démarrage Rapide (Quick Start)
 
 ### 1. Prérequis
