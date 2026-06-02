@@ -1,0 +1,168 @@
+# ====================================
+# CED HalalTech™ — Déploiement Automatique Infomaniak
+# 🟦 Infra HalalTech | 🇨🇭 Genève
+# "Je ne cherche par ce déploiement que la Face d'Allah."
+# ====================================
+
+name: Deploy to Infomaniak 🇨🇭
+
+on:
+  push:
+    branches:
+      - develop        # 🧪 Déclenche le déploiement en STAGING (VPS Test)
+  push:
+    tags:
+      - 'v*.*.*-AUDITED' # 🚀 Déclenche le déploiement en PROD (Cloud Managé) SUR TAG UNIQUEMENT
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environnement de déploiement forcé'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+env:
+  NODE_VERSION: '20'
+  PROJECT_NAME: 'CED HalalTech'
+
+jobs:
+  # ====================================
+  # ÉTAPE 1 : BUILD & TEST (Commun)
+  # ====================================
+  build-and-test:
+    name: 🛠️ Build & Verify Ethics
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🟦 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 🟢 Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+          
+      - name: 🟠 Install Dependencies
+        run: npm ci
+        
+      - name: 🟪 Run Lint & Type Check
+        run: npm run lint && npm run type-check
+        # Ici, vous pourrez ajouter plus tard : npm run test:ethics
+        
+      - name: 🟦 Build Production
+        run: npm run build
+        env:
+          NODE_ENV: production
+          
+      - name: 🟥 Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ github.run_id }}
+          path: dist/
+          retention-days: 5
+
+  # ====================================
+  # ÉTAPE 2 : DEPLOY STAGING (VPS Ubuntu 24 Test)
+  # ====================================
+  deploy-staging:
+    name: 🧪 Deploy to Staging (VPS Test)
+    needs: build-and-test
+    if: github.ref == 'refs/heads/develop' || github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'staging'
+    runs-on: ubuntu-latest
+    environment: staging
+    
+    steps:
+      - name: 🟦 Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ github.run_id }}
+          path: dist/
+          
+      - name: 🟢 Deploy to Staging VPS via SSH
+        uses: easingthemes/ssh-deploy@v4
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_STAGING }}
+          REMOTE_HOST: ${{ secrets.STAGING_HOST }} # IP de votre VPS Test Ubuntu 24
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          SOURCE: "dist/"
+          TARGET: ${{ secrets.STAGING_PATH }} # ex: /var/www/ced-staging
+          ARGS: "-avzr --delete"
+          EXCLUDE: "/node_modules/, /.env*, /.git/"
+          
+      - name: 🟠 Restart Staging Service
+        uses: easingthemes/ssh-deploy@v4
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_STAGING }}
+          REMOTE_HOST: ${{ secrets.STAGING_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          SCRIPT: |
+            echo "🌙 Redémarrage du service Staging..."
+            cd ${{ secrets.STAGING_PATH }}
+            # Adaptez selon votre gestionnaire (PM2, Docker, Systemd)
+            pm2 restart ced-staging || echo "PM2 non configuré sur staging"
+            echo "✅ Staging déployé avec succès. Incha Allah."
+
+  # ====================================
+  # ÉTAPE 3 : DEPLOY PRODUCTION (Cloud Managé)
+  # ====================================
+  deploy-production:
+    name: 🚀 Deploy to PROD (Cloud Managé)
+    needs: build-and-test
+    if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, '-AUDITED')
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - name: 🟦 Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ github.run_id }}
+          path: dist/
+          
+      - name: 🟥 Deploy to Production via SSH
+        uses: easingthemes/ssh-deploy@v4
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PROD }}
+          REMOTE_HOST: ${{ secrets.PROD_HOST }} # IP de votre Cloud Managé
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          SOURCE: "dist/"
+          TARGET: ${{ secrets.PROD_PATH }} # ex: /var/www/ced-prod
+          ARGS: "-avzr --delete"
+          EXCLUDE: "/node_modules/, /.env*, /.git/"
+          
+      - name: 🟩 Restart Production Service & Clear Cache
+        uses: easingthemes/ssh-deploy@v4
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PROD }}
+          REMOTE_HOST: ${{ secrets.PROD_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          SCRIPT: |
+            echo "🌟 DÉPLOIEMENT PRODUCTION AUDITÉ - Incha Allah"
+            echo "📅 Date: $(date)"
+            echo "🏷️ Tag: ${{ github.ref_name }}"
+            cd ${{ secrets.PROD_PATH }}
+            # Commandes de prod (PM2, Docker, etc.)
+            pm2 restart ced-prod
+            echo "✅ Production mise à jour avec le tag ${{ github.ref_name }}"
+
+  # ====================================
+  # ÉTAPE 4 : NOTIFICATIONS
+  # ====================================
+  notify-status:
+    name: 📢 Notify Status
+    needs: [deploy-staging, deploy-production]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Status
+        run: |
+          if [ "${{ needs.deploy-staging.result }}" == "success" ] || [ "${{ needs.deploy-production.result }}" == "success" ]; then
+            echo "✅ Déploiement réussi. Qu'Allah mette la Barakah dans ce code."
+          else
+            echo "❌ Échec du déploiement. Vérification immédiate requise (Principe de correction)."
+          fi
