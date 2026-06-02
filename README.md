@@ -1,3 +1,5 @@
+markdown
+Copier
 # 🟦 CED-Core | Infra HalalTech
 
 > **🇨🇭 Écosystème Financier & Technologique Conforme Sharia**  
@@ -111,3 +113,4 @@ Ce projet est PROPRIÉTAIRE. La reproduction ou l'utilisation commerciale sans a
 "Qu'Allah mette la Barakah dans chaque ligne de code et dans chaque projet partagé ici."
 
 📞 Contact : direction@ced-halaltech.ch | 🌐 Web: ced-halaltech.ch
+
