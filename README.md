@@ -1,4 +1,4 @@
-# 🟦 CED-Core | Infra HalalTech
+### 🟦 CED-Core | Infra HalalTech
 
 > **🇨🇭 Écosystème Financier & Technologique Conforme Sharia**  
 > **📍 Localisation :** Genève, Suisse (Hébergé 100% chez Infomaniak)  
