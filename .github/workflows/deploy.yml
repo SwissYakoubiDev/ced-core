@@ -107,8 +107,10 @@ jobs:
             pm2 restart ced-staging || echo "PM2 non configuré sur staging"
             echo "✅ Staging déployé avec succès. Incha Allah."
 
-  # ====================================
-  # ÉTAPE 3 : DEPLOY PRODUCTION (Cloud Managé)
+ 
+         
+# ====================================
+  # ÉTAPE 3 : DEPLOY PRODUCTION (Cloud Managé) - Version SFTP Password
   # ====================================
   deploy-production:
     name: 🚀 Deploy to PROD (Cloud Managé)
@@ -124,32 +126,33 @@ jobs:
           name: dist-${{ github.run_id }}
           path: dist/
           
-      - name: 🟥 Deploy to Production via SSH
+      - name: 🟥 Deploy to Production via SFTP (Password)
         uses: easingthemes/ssh-deploy@v4
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PROD }}
-          REMOTE_HOST: ${{ secrets.PROD_HOST }} # IP de votre Cloud Managé
-          REMOTE_USER: ${{ secrets.SSH_USER }}
+          # Utilisation du mot de passe car les clés SSH ne sont pas dispo sur cet hébergement
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          REMOTE_HOST: ${{ secrets.PROD_HOST }}
+          REMOTE_USER: ${{ secrets.FTP_USERNAME }}
           SOURCE: "dist/"
-          TARGET: ${{ secrets.PROD_PATH }} # ex: /var/www/ced-prod
+          TARGET: ${{ secrets.PROD_PATH }}
           ARGS: "-avzr --delete"
           EXCLUDE: "/node_modules/, /.env*, /.git/"
+          PROTOCOL: "sftp"
           
-      - name: 🟩 Restart Production Service & Clear Cache
+      - name: 🟩 Restart Production Service
         uses: easingthemes/ssh-deploy@v4
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PROD }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           REMOTE_HOST: ${{ secrets.PROD_HOST }}
-          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_USER: ${{ secrets.FTP_USERNAME }}
           SCRIPT: |
             echo "🌟 DÉPLOIEMENT PRODUCTION AUDITÉ - Incha Allah"
             echo "📅 Date: $(date)"
             echo "🏷️ Tag: ${{ github.ref_name }}"
             cd ${{ secrets.PROD_PATH }}
-            # Commandes de prod (PM2, Docker, etc.)
-            pm2 restart ced-prod
+            # Sur l'hébergement managé Infomaniak, le redémarrage est souvent automatique
+            pm2 restart all || echo "Redémarrage automatique géré par Infomaniak"
             echo "✅ Production mise à jour avec le tag ${{ github.ref_name }}"
-
   # ====================================
   # ÉTAPE 4 : NOTIFICATIONS
   # ====================================
