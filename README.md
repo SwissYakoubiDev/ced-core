@@ -1,5 +1,3 @@
-markdown
-Copier
 # 🟦 CED-Core | Infra HalalTech
 
 > **🇨🇭 Écosystème Financier & Technologique Conforme Sharia**  
