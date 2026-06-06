@@ -1,5 +1,10 @@
 # 🟦 CED-Core | Infra HalalTech
 
+![Statut](https://img.shields.io/badge/Statut-Production%20Audité-success)
+![Version](https://img.shields.io/badge/Version-2.4.1--AUDITED-blue)
+![Conformité](https://img.shields.io/badge/Conformité-AAOIFI%20%7C%20LPD-green)
+![Licence](https://img.shields.io/badge/Licence-Propriétaire-red)
+
 > **🇨🇭 Écosystème Financier & Technologique Conforme Sharia**  
 > **📍 Localisation :** Genève, Suisse (Hébergé 100% chez Infomaniak)  
 > **🔒 Conformité :** LPD / RGPD / AAOIFI (Zéro Riba, Zéro Gharar)  
