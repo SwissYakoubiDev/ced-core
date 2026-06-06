@@ -1,0 +1,36 @@
+# 🏛️ CODEOWNERS - CED-Core
+# Règles de validation basées sur la Charte Couleur Souveraine
+# Toute modification nécessite l'approbation des gardiens du pôle concerné.
+# 👑 Propriétaire Global (Gardien de la Niyyah)
+* @PrettyhowQ
+
+# 🏳️ ÉTHIQUE & NIYYAH (Beige)
+# Protection maximale : Aucun changement sans validation de la direction spirituelle.
+/00_Uniquement_pour_Allah/ @PrettyhowQ
+/MANIFESTE_ETHIQUE.md @PrettyhowQ
+/LICENSE @PrettyhowQ
+
+# 🟩 FINANCE & FIQH (Vert Foncé)
+# Validation requise pour tout changement touchant à la Zakat, au Riba ou au Takaful.
+/server/finance/ @PrettyhowQ
+/shared/schema_zakat.ts @PrettyhowQ
+/docs/fiqh_rules.md @PrettyhowQ
+
+# 🟥 LÉGAL & SUISSE (Rouge)
+# Validation requise pour la conformité LPD et les audits.
+/server/compliance/ @PrettyhowQ
+/docs/legal/ @PrettyhowQ
+/config/swiss-rules.js @PrettyhowQ
+
+# 🟪 IA & ÉTHIQUE ALGORITHMIQUE (Violet)
+# Validation requise pour les filtres RAG et les modèles d'IA.
+/server/ai/ @PrettyhowQ
+/server/ai-engine/ @PrettyhowQ
+/scripts/python/rag_filter.py @PrettyhowQ
+
+# 🟦 INFRASTRUCTURE & DÉPLOIEMENT (Bleu Marine & Vert Pistache)
+# Validation requise pour le déploiement chez Infomaniak et la CI/CD.
+/.github/ @PrettyhowQ
+/docker-compose.yml @PrettyhowQ
+/config/infomaniak-deploy.sh @PrettyhowQ
+/.env.example @PrettyhowQ
