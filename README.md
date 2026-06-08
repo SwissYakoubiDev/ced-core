@@ -38,6 +38,8 @@ Pour une maintenance claire et une cohérence spirituelle, chaque module de ce d
 | 🟥 **Rouge** | **Suisse** | `Genève / Légal` | Conformité LPD, Lois locales, Logs d'audit (`docs/legal`, `server/compliance`). |
 | 🟢 **Vert Pistache**| **Hébergeur** | `Infomaniak` | Scripts de déploiement, Variables d'env, SSH (`.env`, `deploy.sh`). |
 | 🏳️ **Beige** | **Éthique** | `Transverse` | Documentation, Manifestes, Licences (`LICENSE`, `MANIFESTE_ETHIQUE.md`). |
+| 📺 **Média** | `PRETTYHOWQ` | Web TV & Streaming | Composants vidéo (`client/src/media`). |
+| 📞 **Com** | `Téléphonie` | Standard & Appels | Intégration VoIP (`server/telephony`). |
 
 ---
 
@@ -55,64 +57,94 @@ Une stack moderne, performante et **100% souveraine**, conçue pour l'excellence
 
 ---
 
+### 🌐 Écosystème Étendu & Services Associés (Infomaniak)
+
+Ce dépôt `ced-core` est le cœur technique, mais il s'articule avec plusieurs briques fonctionnelles hébergées sur la même infrastructure souveraine (Org: `TechForAll`) :
+
+| Service | Usage | Intégration Technique | Couleur |
+| :--- | :--- | :--- | :--- |
+| **🎓 CED Academy (LMS)** | Formation & Certification | Hébergé sur **Serveur Cloud Managé**. Base de données liée à `ced-core`. | 🟧 Orange |
+| **📺 PRETTYHOWQ Web TV** | Média & Information | Stockage vidéo sur **Objet Storage / VOD**. Lecteur dans `client/src/media`. | 📺 Média |
+| **📞 Téléphonie Virtuelle** | Communication Pro | Numéro **022 (Genève)** via **Infomaniak Téléphonie**. Webhooks dans `server/telephony`. | 📞 Com |
+| **💬 Collaboration** | Équipe & Support | **kChat** (interne) et **kMeet** (visio). Liens générés via API calendrier. | 🟦 Bleu Marine |
+| **🗄️ Stockage Sécurisé** | Documents & Backups | **kDrive** pour les documents sensibles. Sync automatique via scripts. | 🟢 Vert Pistache |
+
+---
+
 ## 📂 Structure du Projet
 
 ```text
 ced-core/
-├── .github/                 # 🟦 Infra (CI/CD vers Infomaniak)
+├── .github/                 # 🟦 Infra (CI/CD, Workflow 'deploy-swiss-audited.yml')
 ├── 00_Uniquement_pour_Allah/# 🏳️ Éthique (Niyyah & Engagements)
 ├── client/                  # Frontend React
 │   ├── src/finance/         # 🟩 Modules Financiers
-│   ├── src/education/       # 🟧 Modules Formation
+│   ├── src/education/       # 🟧 Modules Formation (LMS)
+│   ├── src/media/           # 📺 NOUVEAU : Lecteur Web TV & VOD
 │   ├── src/ai-ethics/       # 🟪 Filtres IA
 │   └── src/community/       # 🟦 Communauté
 ├── server/                  # Backend Node.js
 │   ├── compliance/          # 🟥 Conformité Suisse (LPD)
-│   └── ai-engine/           # 🟪 Moteur Éthique
+│   ├── ai-engine/           # 🟪 Moteur Éthique
+│   └── telephony/           # 📞 NOUVEAU : Intégration API Téléphonie
 ├── config/
-│   ├── infomaniak-deploy.sh # 🟢 Script Déploiement Infomaniak
-│   └── swiss-rules.js       # 🟥 Règles Locales
+│   ├── infomaniak-deploy.sh # 🟢 Script Déploiement
+│   ├── swiss-rules.js       # 🟥 Règles Locales
+│   └── runner-setup.sh      # 🆕 Script Installation GitHub Runner (Souverain)
 └── docs/                    # 🏳️ Documentation & Légal
 🚀 Déploiement Souverain (Infomaniak)
-Ce projet est conçu pour être déployé exclusivement sur l'infrastructure Infomaniak à Genève.
 
-1. Prérequis
-Accès SSH configuré vers votre VPS/Cloud Infomaniak.
-Node.js v20+ et PM2 installés sur le serveur.
-Variables d'environnement sécurisées (.env).
-2. Installation & Lancement
+Ce projet est conçu pour être déployé exclusivement sur l'infrastructure Infomaniak à Genève, via un Runner Auto-Hébergé.
+
+1. Prérequis Infrastructure
+
+Serveur Cloud Managé (Org: TechForAll) provisionné.
+GitHub Runner installé sur le serveur (labels: ced-core-runner, swiss-infra).
+Accès SSH configuré et variables d'environnement (.env) sécurisées.
+Services complémentaires actifs : Stockage Objet (VOD), Téléphonie 022, kSuite.
+2. Installation & Lancement (Via Runner)
+
+Le déploiement est automatisé par le workflow .github/workflows/deploy-swiss-audited.yml.
+
 bash
 Copier
-# 🟦 Clonage depuis l'Infra HalalTech
+# 🟦 Clonage depuis l'Infra HalalTech (sur le serveur suisse)
 git clone git@github.com:SwissYakoubiDev/ced-core.git
 cd ced-core
 npm install
 
-# 🟢 Déploiement vers Infomaniak (Genève)
+# 🟢 Déploiement manuel (si nécessaire)
 chmod +x config/infomaniak-deploy.sh
 ./config/infomaniak-deploy.sh
-3. Règle de Production
-⚠️ Seul le code tagué vX.X-AUDITED est déployé en production.
+3. Règle de Production (Gouvernance)
+
+⚠️ Seul le code tagué vX.X-AUDITED est déployé en production. Le workflow rejette tout autre tag.
 
 bash
 Copier
+# Exemple de tag pour release
 git tag -a v2.4.1-AUDITED -m "Audit éthique et technique validé"
 git push origin v2.4.1-AUDITED
 🔒 Sécurité & Conformité
+
 Chiffrement : AES-256 au repos, TLS 1.3 en transit.
 Données : Hébergées exclusivement à Genève (Suisse), soumises à la LPD.
 Éthique : Zéro Riba (intérêt), Zéro Gharar (incertitude), Zéro exploitation de données.
+Souveraineté CI/CD : Le code n'est jamais compilé sur les serveurs de GitHub (USA), uniquement sur le runner suisse.
 📊 Métriques du Cœur Technique (Juillet 2025)
+
 Métrique	Valeur	Impact
-Pages Générées	465+	Modules Bank, Takaful, Academy, IA
+Pages Générées	465+	Modules Bank, Takaful, Academy, IA, Média
 Lignes de Code	156 000+	TypeScript, React, Node.js, SQL
 Règles Fiqh	27 446+	Moteur de conformité "Zéro Riba" intégré
 Langues	91	Support i18n complet (RTL/LTR)
 📄 Licence & Propriété Intellectuelle
+
 © 2024-2026 Yakoubi Yamina / CED HalalTech™. Tous droits réservés.
 
 Ce projet est PROPRIÉTAIRE. La reproduction ou l'utilisation commerciale sans autorisation est interdite. Le code est écrit avec l'intention de servir le bien commun, sous la protection d'Allah.
 
 "Qu'Allah mette la Barakah dans chaque ligne de code et dans chaque projet partagé ici."
 
-📞 Contact : direction@ced-halaltech.ch | 🌐 Web: ced-halaltech.ch
+📞 Contact : direction@ced-halaltech.ch
+🌐 Web : ced-halaltech.ch
