@@ -5,10 +5,12 @@
 ![GitHub License](https://img.shields.io/github/license/SwissYakoubiDev/ced-core?label=Licence&color=orange)
 ![GitHub Repo stars](https://img.shields.io/github/stars/SwissYakoubiDev/ced-core?style=social)
 
+# 🟦 CED-Core | Infra HalalTech
+
 > **🇨🇭 Écosystème Financier & Technologique Conforme Sharia**  
-> **📍 Localisation :** Genève, Suisse (Hébergé 100% chez Infomaniak)  
-> **🔒 Conformité :** LPD / RGPD / AAOIFI (Zéro Riba, Zéro Gharar)  
-> **🚀 Statut :** Production | Version: 2.4.1-AUDITED
+> 📍 **Localisation :** Genève, Suisse (Hébergé 100% chez Infomaniak)  
+> 🔒 **Conformité :** LPD / RGPD / AAOIFI (Zéro Riba, Zéro Gharar)  
+> 🚀 **Statut :** Production | Version: `2.4.1-AUDITED`
 
 ---
 
@@ -16,36 +18,36 @@
 
 > *"Je ne cherche par ce projet que la Face d'Allah, et non la renommée, ni le gain mondain."*
 
-Ce projet est guidé par une **Déclaration d'Intention (Niyyah)** stricte : servir uniquement la Face d'Allah, dans la sincérité (Ikhlas) et le bénéfice pour la communauté (Nafa').
+Ce projet est guidé par une **Déclaration d'Intention (Niyyah)** stricte : servir uniquement la Face d'Allah, dans la sincérité (*Ikhlas*) et le bénéfice pour la communauté (*Nafa'*).
 
-- ✅ **Tawhîd :** Unicité de la vision technique et spirituelle.
-- ✅ **'Adl :** Justice et équité intégrées dans les algorithmes.
-- ✅ **Amanah :** Gestion responsable et sécurisée des données utilisateurs.
+*   ✅ **Tawhîd :** Unicité de la vision technique et spirituelle.
+*   ✅ **'Adl :** Justice et équité intégrées dans les algorithmes.
+*   ✅ **Amanah :** Gestion responsable et sécurisée des données utilisateurs.
 
 ---
 
 ## 🎨 Charte Visuelle & Architecture (Infra HalalTech)
 
-Pour une maintenance claire et une cohérence spirituelle, chaque module de ce dépôt respecte le **Code Couleur Souverain** :
+Pour une maintenance claire et une cohérence spirituelle, chaque module de ce dépôt respecte le **Code Couleur Souverain**. Cette charte s'applique à la fois à la documentation et à la structure des dossiers dans le code.
 
 | Couleur | Pôle | Entité | Usage dans le code |
-| :---: | :--- | :--- | :--- |
-| 🟦 **Bleu Marine** | **Infra** | `Infra HalalTech` | Config racine, Docker, CI/CD, DevOps (`.github`, `docker-compose`). |
-| 🟩 **Vert** | **Finance** | `CED HalalTech` | Modules financiers, Zakat, Fiqh, Takaful (`server/finance`, `shared/schema`). |
-| 🟧 **Orange** | **Formation** | `Institut Yamina` | LMS, Cours, Recherche (`client/src/components/education`). |
-| 🟪 **Violet** | **IA** | `EuriaHub CED` | Algorithmes éthiques, IA, Filtres RAG (`server/ai`, `scripts/python`). |
-| 🔷 **Turquoise** | **Communauté** | `Club Empreinte` | Forum, Utilisateurs, Événements (`client/src/components/community`). |
-| 🟥 **Rouge** | **Suisse** | `Genève / Légal` | Conformité LPD, Lois locales, Logs d'audit (`docs/legal`, `server/compliance`). |
-| 🟢 **Vert Pistache**| **Hébergeur** | `Infomaniak` | Scripts de déploiement, Variables d'env, SSH (`.env`, `deploy.sh`). |
-| ⚪ **Beige** | **Éthique** | `Transverse` | Documentation, Manifestes, Licences (`LICENSE`, `MANIFESTE_ETHIQUE.md`). |
-| 📺 **Média** | `PRETTYHOWQ` | Web TV & Streaming | Composants vidéo (`client/src/media`). |
-| 📞 **Com** | `Téléphonie` | Standard & Appels | Intégration VoIP (`server/telephony`). |
+| :--- | :--- | :--- | :--- |
+| 🟦 **Bleu Marine** | Infra | Infra HalalTech | Config racine, Docker, CI/CD, DevOps (`.github`, `docker-compose`). |
+| 🟩 **Vert** | Finance | CED HalalTech | Modules financiers, Zakat, Fiqh, Takaful (`server/finance`, `shared/schema`). |
+| 🟧 **Orange** | Formation | Institut Yamina | LMS, Cours, Recherche (`client/src/components/education`). |
+| 🟪 **Violet** | IA | EuriaHub CED | Algorithmes éthiques, IA, Filtres RAG (`server/ai`, `scripts/python`). |
+| 🔷 **Turquoise** | Communauté | Club Empreinte | Forum, Utilisateurs, Événements (`client/src/components/community`). |
+| 🟥 **Rouge** | Suisse | Genève / Légal | Conformité LPD, Lois locales, Logs d'audit (`docs/legal`, `server/compliance`). |
+| 🟢 **Vert Pistache** | Hébergeur | Infomaniak | Scripts de déploiement, Variables d'env, SSH (`.env`, `deploy.sh`). |
+| ⚪ **Beige** | Éthique | Transverse | Documentation, Manifestes, Licences (`LICENSE`, `MANIFESTE_ETHIQUE.md`). |
+| 📺 **Média** | PRETTYHOWQ | Web TV & Streaming | Composants vidéo (`client/src/media`). |
+| 📞 **Com** | Téléphonie | Standard & Appels | Intégration VoIP (`server/telephony`). |
 
 ---
 
 ## 🏗️ Architecture Technique
 
-Une stack moderne, performante et **100% souveraine**, conçue pour l'excellence (Ihsan).
+Une stack moderne, performante et 100% souveraine, conçue pour l'excellence (*Ihsan*).
 
 | Couche | Technologies | Couleur Associée |
 | :--- | :--- | :--- |
@@ -55,25 +57,9 @@ Une stack moderne, performante et **100% souveraine**, conçue pour l'excellence
 | **IA & Data** | Python, Vector DB, Filtres Éthiques Locaux | 🟪 Violet |
 | **Infra** | Infomaniak Cloud (Genève), Docker, Nginx, PM2 | 🟦 Bleu Marine / 🟢 Vert Pistache |
 
----
+### 📂 Structure du Projet
 
-### 🌐 Écosystème Étendu & Services Associés (Infomaniak)
-
-Ce dépôt `ced-core` est le cœur technique, mais il s'articule avec plusieurs briques fonctionnelles hébergées sur la même infrastructure souveraine (Org: `TechForAll`) :
-
-| Service | Usage | Intégration Technique | Couleur |
-| :--- | :--- | :--- | :---: |
-| **🎓 CED Academy (LMS)** | Formation & Certification | Hébergé sur **Serveur Cloud Managé**. Base de données liée à `ced-core`. | 🟧 Orange |
-| **📺 PRETTYHOWQ Web TV** | Média & Information | Stockage vidéo sur **Objet Storage / VOD**. Lecteur dans `client/src/media`. | 📺 Média |
-| **📞 Téléphonie Virtuelle** | Communication Pro | Numéro **022 (Genève)** via **Infomaniak Téléphonie**. Webhooks dans `server/telephony`. | 📞 Com |
-| **💬 Collaboration** | Équipe & Support | **kChat** (interne) et **kMeet** (visio). Liens générés via API calendrier. | 🟦 Bleu Marine |
-| **🗄️ Stockage Sécurisé** | Documents & Backups | **kDrive** pour les documents sensibles. Sync automatique via scripts. | 🟢 Vert Pistache |
-
----
-
-## 📂 Structure du Projet
-
-```text
+```bash
 ced-core/
 ├── .github/                 # 🟦 Infra (CI/CD, Workflow 'deploy-swiss-audited.yml')
 ├── 00_Uniquement_pour_Allah/# 🏳️ Éthique (Niyyah & Engagements)
@@ -91,7 +77,15 @@ ced-core/
 │   ├── infomaniak-deploy.sh # 🟢 Script Déploiement
 │   ├── swiss-rules.js       # 🟥 Règles Locales
 │   └── runner-setup.sh      # 🆕 Script Installation GitHub Runner (Souverain)
-└── docs/                    # 🏳️ Documentation & Légal
+└── docs/                    # 🏳️ Documentation & Légal                                   🌐 Écosystème Étendu & Services Associés
+Ce dépôt ced-core est le cœur technique, articulé avec plusieurs briques fonctionnelles hébergées sur la même infrastructure souveraine (Org: TechForAll) :
+
+Service	Usage	Intégration Technique	Couleur
+🎓 CED Academy	Formation & Certification	Hébergé sur Serveur Cloud Managé. DB liée à ced-core.	🟧 Orange
+📺 PRETTYHOWQ	Média & Information	Stockage vidéo sur Objet Storage / VOD. Lecteur dans client/src/media.	📺 Média
+📞 Téléphonie	Communication Pro	Numéro 022 (Genève) via Infomaniak. Webhooks dans server/telephony.	📞 Com
+💬 Collaboration	Équipe & Support	kChat (interne) et kMeet (visio). Liens via API calendrier.	🟦 Bleu Marine
+🗄️ Stockage	Documents & Backups	kDrive pour docs sensibles. Sync auto via scripts.	🟢 Vert Pistache
 🚀 Déploiement Souverain (Infomaniak)
 Ce projet est conçu pour être déployé exclusivement sur l'infrastructure Infomaniak à Genève, via un Runner Auto-Hébergé.
 
@@ -140,6 +134,4 @@ Ce projet est PROPRIÉTAIRE. La reproduction ou l'utilisation commerciale sans a
 "Qu'Allah mette la Barakah dans chaque ligne de code et dans chaque projet partagé ici."
 
 📞 Contact : direction@ced-halaltech.ch
-🌐 Web : ced-halaltech.ch
-
-
+🌐 Web : ced-halaltech.ch     
