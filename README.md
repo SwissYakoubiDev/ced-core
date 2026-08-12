@@ -1,9 +1,9 @@
 # 🟦 CED-Core | Infra HalalTech
 
-![Statut](https://img.shields.io/badge/Statut-Production%20Audité-success)
-![Version](https://img.shields.io/badge/Version-2.4.1--AUDITED-blue)
-![Conformité](https://img.shields.io/badge/Conformité-AAOIFI%20%7C%20LPD-green)
-![Licence](https://img.shields.io/badge/Licence-Propriétaire-red)
+![GitHub Release](https://img.shields.io/github/v/release/SwissYakoubiDev/ced-core?label=Dernière%20Version&color=27ae60)
+![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/SwissYakoubiDev/ced-core?label=Activité&color=2980b9)
+![GitHub License](https://img.shields.io/github/license/SwissYakoubiDev/ced-core?label=Licence&color=orange)
+![GitHub Repo stars](https://img.shields.io/github/stars/SwissYakoubiDev/ced-core?style=social)
 
 > **🇨🇭 Écosystème Financier & Technologique Conforme Sharia**  
 > **📍 Localisation :** Genève, Suisse (Hébergé 100% chez Infomaniak)  
