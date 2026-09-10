@@ -117,3 +117,4 @@ Stack : TypeScript, TailwindCSS (Vert #10B981).
 ✅ Précision (Adl) : Algorithmes audités pour respecter le taux de 2.5% au centime près.
 Statut : En développement pour le test technique des nouveaux candidats (Promo 2026).
 "Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
+
