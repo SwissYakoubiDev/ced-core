@@ -44,44 +44,37 @@ Pour une maintenance claire et une cohérence spirituelle, chaque module de ce d
 | 📞 **Com** | Téléphonie | Standard & Appels | Intégration VoIP (`server/telephony`). |
 
 ---
+
 ## 🏗️ Architecture Technique
 
 Une stack moderne, performante et 100% souveraine, conçue pour l'excellence (*Ihsan*).
 
 ```mermaid
 flowchart TD
-    %% Définition des styles selon la Charte Couleur Souveraine
-    classDef infra fill:#1e3a8a,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef finance fill:#166534,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef compliance fill:#991b1b,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef ia fill:#6b21a8,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef community fill:#0e7490,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef host fill:#15803d,stroke:#fff,stroke-width:2px,color:#fff;
-
     %% Nœuds Principaux
     User((👤 Utilisateur))
     
-    subgraph Infra_HalalTech["🟦 Infra HalalTech (Suisse)"]
+    subgraph Infra["🟦 Infra HalalTech (Suisse)"]
         direction TB
-        Gateway[🟦 Gateway / Nginx]:::infra
-        Runner[🟦 GitHub Runner Souverain]:::infra
+        Gateway[🟦 Gateway / Nginx]
+        Runner[🟦 GitHub Runner Souverain]
     end
 
-    subgraph CED_Core["🏛️ Cœur CED-Core"]
+    subgraph Core["🏛️ Cœur CED-Core"]
         direction LR
-        Frontend[🔷 Frontend React<br/>Community & Education]:::community
-        Backend[🟩 Backend Finance<br/>Logique Métier]:::finance
-        ComplianceLayer[🟥 Compliance Layer<br/>Filtre Anti-Riba/Gharar]:::compliance
-        AIEngine[🟪 Moteur IA Éthique<br/>Ollama Local]:::ia
+        Frontend[🔷 Frontend React<br/>Community & Education]
+        Backend[🟩 Backend Finance<br/>Logique Métier]
+        Compliance[🟥 Compliance Layer<br/>Filtre Anti-Riba/Gharar]
+        AI[🟪 Moteur IA Éthique<br/>Ollama Local]
     end
 
-    subgraph Data_Layer["🗄️ Données Souveraines"]
-        DB[(🟥 PostgreSQL<br/>Genève)]:::compliance
-        VectorDB[(🟪 Vector DB<br/>Mémoire IA)]:::ia
+    subgraph Data["🗄️ Données Souveraines"]
+        DB[(🟥 PostgreSQL<br/>Genève)]
+        Vector[(🟪 Vector DB<br/>Mémoire IA)]
     end
 
-    subgraph Host["🟢 Vert Pistache - Infomaniak Cloud"]
-        Geneva[🇨🇭 Datacenter Genève]:::host
+    subgraph Host["🟢 Infomaniak Cloud"]
+        Geneva[🇨🇭 Datacenter Genève]
     end
 
     %% Flux de Données
@@ -90,39 +83,38 @@ flowchart TD
     Frontend --> Backend
     
     %% Règle Critique : Validation Rouge avant IA
-    Backend --> ComplianceLayer
-    ComplianceLayer -- ✅ Validé Charia --> AIEngine
-    ComplianceLayer -- ❌ Rejeté (Riba/Gharar) --> Frontend
+    Backend --> Compliance
+    Compliance -- ✅ Validé Charia --> AI
+    Compliance -- ❌ Rejeté --> Frontend
     
-    AIEngine --> VectorDB
+    AI --> Vector
     Backend --> DB
     
     %% Hébergement
-    Infra_HalalTech -.-> Host
-    CED_Core -.-> Host
-    Data_Layer -.-> Host
+    Infra -.-> Host
+    Core -.-> Host
+    Data -.-> Host
 
-    %% Légende
-    subgraph Légende["🎨 Légende de Charte"]
-        L1[🟦 Infra]:::infra
-        L2[🟩 Finance]:::finance
-        L3[🟥 Légal/Compliance]:::compliance
-        L4[🟪 IA Éthique]:::ia
-    end
+    %% Styles (Appliqués globalement pour compatibilité)
+    style Gateway fill:#1e3a8a,stroke:#fff,stroke-width:2px,color:#fff
+    style Runner fill:#1e3a8a,stroke:#fff,stroke-width:2px,color:#fff
+    style Frontend fill:#0e7490,stroke:#fff,stroke-width:2px,color:#fff
+    style Backend fill:#166534,stroke:#fff,stroke-width:2px,color:#fff
+    style Compliance fill:#991b1b,stroke:#fff,stroke-width:2px,color:#fff
+    style AI fill:#6b21a8,stroke:#fff,stroke-width:2px,color:#fff
+    style DB fill:#991b1b,stroke:#fff,stroke-width:2px,color:#fff
+    style Vector fill:#6b21a8,stroke:#fff,stroke-width:2px,color:#fff
+    style Geneva fill:#15803d,stroke:#fff,stroke-width:2px,color:#fff
 
----
+🧪 Module Pilote : Formation & Intégration (Institut Yamina 🟧)
+Dans le cadre du programme de formation de l'Institut Yakoubi Yamina, ce dépôt accueille des modules pilotes développés par nos apprentis sous supervision stricte.
 
-## 🧪 Module Pilote : Formation & Intégration (Institut Yamina 🟧)
-
-Dans le cadre du programme de formation de l'**Institut Yakoubi Yamina**, ce dépôt accueille des modules pilotes développés par nos apprentis sous supervision stricte.
-
-### 🟩 Projet Actif : Calculateur de Zakat al-Mal (v1.0)
-*   **Objectif :** Fournir un outil de calcul précis, local et éthique pour la communauté.
-*   **Emplacement :** `/server/finance/zakat` & `/client/src/components/finance`
-*   **Stack :** TypeScript, TailwindCSS (Vert #10B981).
-*   **Éthique :** 
-    *   ✅ **Confidentialité (Amanah) :** Calcul côté client (Zero-Knowledge). Aucune donnée financière ne touche le serveur.
-    *   ✅ **Précision (Adl) :** Algorithmes audités pour respecter le taux de 2.5% au centime près.
-*   **Statut :** En développement pour le test technique des nouveaux candidats (Promo 2026).
-
-> "Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
+🟩 Projet Actif : Calculateur de Zakat al-Mal (v1.0)
+Objectif : Fournir un outil de calcul précis, local et éthique pour la communauté.
+Emplacement : /server/finance/zakat & /client/src/components/finance
+Stack : TypeScript, TailwindCSS (Vert #10B981).
+Éthique :
+✅ Confidentialité (Amanah) : Calcul côté client (Zero-Knowledge). Aucune donnée financière ne touche le serveur.
+✅ Précision (Adl) : Algorithmes audités pour respecter le taux de 2.5% au centime près.
+Statut : En développement pour le test technique des nouveaux candidats (Promo 2026).
+"Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
