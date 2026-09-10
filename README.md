@@ -105,7 +105,6 @@ flowchart TD
     style DB fill:#991b1b,stroke:#fff,stroke-width:2px,color:#fff
     style Vector fill:#6b21a8,stroke:#fff,stroke-width:2px,color:#fff
     style Geneva fill:#15803d,stroke:#fff,stroke-width:2px,color:#fff
-
 🧪 Module Pilote : Formation & Intégration (Institut Yamina 🟧)
 Dans le cadre du programme de formation de l'Institut Yakoubi Yamina, ce dépôt accueille des modules pilotes développés par nos apprentis sous supervision stricte.
 
