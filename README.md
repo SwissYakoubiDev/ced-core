@@ -109,3 +109,20 @@ flowchart TD
         L3[🟥 Légal/Compliance]:::compliance
         L4[🟪 IA Éthique]:::ia
     end
+
+---
+
+## 🧪 Module Pilote : Formation & Intégration (Institut Yamina 🟧)
+
+Dans le cadre du programme de formation de l'**Institut Yakoubi Yamina**, ce dépôt accueille des modules pilotes développés par nos apprentis sous supervision stricte.
+
+### 🟩 Projet Actif : Calculateur de Zakat al-Mal (v1.0)
+*   **Objectif :** Fournir un outil de calcul précis, local et éthique pour la communauté.
+*   **Emplacement :** `/server/finance/zakat` & `/client/src/components/finance`
+*   **Stack :** TypeScript, TailwindCSS (Vert #10B981).
+*   **Éthique :** 
+    *   ✅ **Confidentialité (Amanah) :** Calcul côté client (Zero-Knowledge). Aucune donnée financière ne touche le serveur.
+    *   ✅ **Précision (Adl) :** Algorithmes audités pour respecter le taux de 2.5% au centime près.
+*   **Statut :** En développement pour le test technique des nouveaux candidats (Promo 2026).
+
+> "Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
