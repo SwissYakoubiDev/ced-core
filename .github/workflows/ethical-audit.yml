@@ -1,0 +1,45 @@
+name: 🛡️ Guardian Ethical Audit
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  ethical-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🚫 Scan for Forbidden Cloud Providers
+        run: |
+          echo "🔍 Recherche de dépendances non-souveraines (AWS, Google, OpenAI)..."
+          if grep -r --include="*.ts" --include="*.js" --include="*.py" -E "(aws-sdk|@aws-sdk|googleapis|openai|@azure)" .; then
+            echo "❌ ERREUR CRITIQUE : Détection de fournisseurs Cloud non-souverains interdits par la charte."
+            echo "   Conformité : Uniquement Infomaniak et solutions locales (Ollama)."
+            exit 1
+          fi
+          echo "✅ Aucun fournisseur cloud interdit détecté."
+
+      - name: 🎲 Scan for Non-Deterministic Finance Code
+        run: |
+          echo "🔍 Recherche de Math.random() dans les modules financiers..."
+          # On cherche spécifiquement dans les dossiers finance
+          if grep -r --include="*.ts" --include="*.js" "Math\.random\(\)" ./server/finance ./client/src/finance ./shared/schema 2>/dev/null; then
+            echo "❌ ERREUR CRITIQUE : Usage de Math.random() détecté dans un module financier."
+            echo "   Conformité Sharia : Interdiction du Gharar (incertitude/hasard) dans la finance."
+            echo "   Solution : Utiliser un générateur cryptographique sécurisé ou une logique déterministe."
+            exit 1
+          fi
+          echo "✅ Aucune incertitude algorithmique détectée dans la finance."
+
+      - name: 🔑 Scan for Leaked Secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          extra_args: --only-verified
+        continue-on-error: true # Warning only to not block if false positive, but alert
+
+      - name: ✅ Audit Terminé
+        run: echo "🎉 Le code respecte les principes éthiques et de souveraineté de CED HalalTech™."
