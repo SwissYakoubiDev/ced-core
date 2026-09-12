@@ -49,6 +49,7 @@ Pour une maintenance claire et une cohérence spirituelle, chaque module de ce d
 
 Une stack moderne, performante et 100% souveraine, conçue pour l'excellence (*Ihsan*).
 
+
 ```mermaid
 flowchart TD
     %% Nœuds Principaux
@@ -95,26 +96,7 @@ flowchart TD
     Core -.-> Host
     Data -.-> Host
 
-    %% Styles (Appliqués globalement pour compatibilité)
-    style Gateway fill:#1e3a8a,stroke:#fff,stroke-width:2px,color:#fff
-    style Runner fill:#1e3a8a,stroke:#fff,stroke-width:2px,color:#fff
-    style Frontend fill:#0e7490,stroke:#fff,stroke-width:2px,color:#fff
-    style Backend fill:#166534,stroke:#fff,stroke-width:2px,color:#fff
-    style Compliance fill:#991b1b,stroke:#fff,stroke-width:2px,color:#fff
-    style AI fill:#6b21a8,stroke:#fff,stroke-width:2px,color:#fff
-    style DB fill:#991b1b,stroke:#fff,stroke-width:2px,color:#fff
-    style Vector fill:#6b21a8,stroke:#fff,stroke-width:2px,color:#fff
-    style Geneva fill:#15803d,stroke:#fff,stroke-width:2px,color:#fff
-🧪 Module Pilote : Formation & Intégration (Institut Yamina 🟧)
-Dans le cadre du programme de formation de l'Institut Yakoubi Yamina, ce dépôt accueille des modules pilotes développés par nos apprentis sous supervision stricte.
 
-🟩 Projet Actif : Calculateur de Zakat al-Mal (v1.0)
-Objectif : Fournir un outil de calcul précis, local et éthique pour la communauté.
-Emplacement : /server/finance/zakat & /client/src/components/finance
-Stack : TypeScript, TailwindCSS (Vert #10B981).
-Éthique :
-✅ Confidentialité (Amanah) : Calcul côté client (Zero-Knowledge). Aucune donnée financière ne touche le serveur.
-✅ Précision (Adl) : Algorithmes audités pour respecter le taux de 2.5% au centime près.
-Statut : En développement pour le test technique des nouveaux candidats (Promo 2026).
-"Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
+
+
 
