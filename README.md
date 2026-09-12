@@ -95,6 +95,21 @@ flowchart TD
     Infra -.-> Host
     Core -.-> Host
     Data -.-> Host
+   ```
+🧪 Module Pilote : Formation & Intégration (Institut Yamina 🟧)
+Dans le cadre du programme de formation de l'Institut Yakoubi Yamina, ce dépôt accueille des modules pilotes développés par nos apprentis sous supervision stricte.
+
+
+🟩 Projet Actif : Calculateur de Zakat al-Mal (v1.0)
+Objectif : Fournir un outil de calcul précis, local et éthique pour la communauté.
+Emplacement : /server/finance/zakat & /client/src/components/finance
+Stack : TypeScript, TailwindCSS (Vert #10B981).
+Éthique :
+✅ Confidentialité (Amanah) : Calcul côté client (Zero-Knowledge).
+✅ Précision ('Adl) : Algorithmes audités (2.5% exact).
+Statut : En développement pour le test technique des nouveaux candidats (Promo 2026).
+"Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
+
 
 
 
