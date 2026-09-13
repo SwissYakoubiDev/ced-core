@@ -108,9 +108,34 @@ Stack : TypeScript, TailwindCSS (Vert #10B981).
 ✅ Confidentialité (Amanah) : Calcul côté client (Zero-Knowledge).
 ✅ Précision ('Adl) : Algorithmes audités (2.5% exact).
 Statut : En développement pour le test technique des nouveaux candidats (Promo 2026).
-"Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
 
+## 🤲 Comment Contribuer ? (Guide Spirituel & Technique)
 
+Contribuer à `ced-core` n'est pas un acte technique ordinaire, c'est une **Amanah** (dépôt de confiance). Chaque ligne de code ajoutée doit respecter notre engagement envers Allah, l'humanité et la souveraineté numérique.
+
+### 1. Avant de Coder : La Niyyah (Intention)
+- **Réfléchissez :** Pourquoi cette fonctionnalité est-elle nécessaire ? Sert-elle le bien commun (Nafa') ?
+- **Purifiez :** Assurez-vous que votre intention est sincère (Ikhlas), loin de l'orgueil ou de la simple recherche de profit.
+- **Déclarez :** Si vous ajoutez un module majeur, créez ou mettez à jour le fichier `NIYYAH.md` dans le dossier concerné.
+
+### 2. Le Développement : Excellence (Ihsan) & Éthique
+- **Code Propre :** Suivez les standards TypeScript/React. Un code laid est un code difficile à maintenir.
+- **Respect de la Charte :** Utilisez les couleurs et structures définies (ex: `/server/finance` pour le Vert, `/client/src/education` pour l'Orange).
+- **Zéro Riba/Gharar :** Vérifiez qu'aucune logique financière ne contourne les principes de la Charia.
+- **Souveraineté :** Aucune donnée ne doit être envoyée vers des serveurs hors Suisse (sauf exception validée).
+
+### 3. La Submission (Pull Request)
+- **Tests :** Assurez-vous que tous les tests passent localement.
+- **Audit Éthique :** Le "Gardien Éthique" (CI/CD) vérifiera automatiquement votre code. S'il échoue, corrigez avec humilité.
+- **Message de Commit :** Soyez clair et honnête. Ex: `feat(zakat): ajout calcul précis selon école Maliki`.
+
+### 4. Après le Merge : Gratitude (Shukr)
+- Une fois votre code fusionné, prenez un moment pour remercier Allah d'avoir facilité ce travail.
+- Sachez que chaque utilisateur qui bénéficiera de votre code générera une récompense perpétuelle (Sadaqa Jariya) pour vous, incha Allah.
+
+> "Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
+
+Merci de faire partie de cette aventure unique. Qu'Allah bénisse vos mains et votre code.
 
 
 
