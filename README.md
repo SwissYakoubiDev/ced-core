@@ -1,11 +1,11 @@
-# 🟦 CED-Core | Infra HalalTech
+> 🗺️ **Retour à l'index central :** [Voir l'écosystème complet CED HalalTech™](https://github.com/PrettyhowQ/ced-master-index)
 
-![GitHub Release](https://img.shields.io/github/v/release/SwissYakoubiDev/ced-core?label=Dernière%20Version&color=27ae60)
-![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/SwissYakoubiDev/ced-core?label=Activité&color=2980b9)
-![GitHub License](https://img.shields.io/github/license/SwissYakoubiDev/ced-core?label=Licence&color=orange)
-![GitHub Repo stars](https://img.shields.io/github/stars/SwissYakoubiDev/ced-core?style=social)
+# 🟦 CED-NoYau | Infra HalalTech
 
-# 🟦 CED-Core | Infra HalalTech
+![Version](https://img.shields.io/badge/Version-v2.4.1--AUDITED-27ae60)
+![Activité](https://img.shields.io/badge/Activité-Intense-2980b9)
+![Licence](https://img.shields.io/badge/Licence-Propriétaire-orange)
+![Statut](https://img.shields.io/badge/Statut-Privé%20%7C%20Suisse-red)
 
 > **🇨🇭 Écosystème Financier & Technologique Conforme Sharia**  
 > 📍 **Localisation :** Genève, Suisse (Hébergé 100% chez Infomaniak)  
@@ -48,7 +48,6 @@ Pour une maintenance claire et une cohérence spirituelle, chaque module de ce d
 ## 🏗️ Architecture Technique
 
 Une stack moderne, performante et 100% souveraine, conçue pour l'excellence (*Ihsan*).
-
 
 ```mermaid
 flowchart TD
@@ -95,12 +94,17 @@ flowchart TD
     Infra -.-> Host
     Core -.-> Host
     Data -.-> Host
-   ```
+
+
+```
+
+
 🧪 Module Pilote : Formation & Intégration (Institut Yamina 🟧)
+
 Dans le cadre du programme de formation de l'Institut Yakoubi Yamina, ce dépôt accueille des modules pilotes développés par nos apprentis sous supervision stricte.
 
-
 🟩 Projet Actif : Calculateur de Zakat al-Mal (v1.0)
+
 Objectif : Fournir un outil de calcul précis, local et éthique pour la communauté.
 Emplacement : /server/finance/zakat & /client/src/components/finance
 Stack : TypeScript, TailwindCSS (Vert #10B981).
@@ -108,35 +112,31 @@ Stack : TypeScript, TailwindCSS (Vert #10B981).
 ✅ Confidentialité (Amanah) : Calcul côté client (Zero-Knowledge).
 ✅ Précision ('Adl) : Algorithmes audités (2.5% exact).
 Statut : En développement pour le test technique des nouveaux candidats (Promo 2026).
+🤲 Comment Contribuer ? (Guide Spirituel & Technique)
 
-## 🤲 Comment Contribuer ? (Guide Spirituel & Technique)
+Contribuer à ced-noyau n'est pas un acte technique ordinaire, c'est une Amanah (dépôt de confiance). Chaque ligne de code ajoutée doit respecter notre engagement envers Allah, l'humanité et la souveraineté numérique.
 
-Contribuer à `ced-core` n'est pas un acte technique ordinaire, c'est une **Amanah** (dépôt de confiance). Chaque ligne de code ajoutée doit respecter notre engagement envers Allah, l'humanité et la souveraineté numérique.
+1. Avant de Coder : La Niyyah (Intention)
 
-### 1. Avant de Coder : La Niyyah (Intention)
-- **Réfléchissez :** Pourquoi cette fonctionnalité est-elle nécessaire ? Sert-elle le bien commun (Nafa') ?
-- **Purifiez :** Assurez-vous que votre intention est sincère (Ikhlas), loin de l'orgueil ou de la simple recherche de profit.
-- **Déclarez :** Si vous ajoutez un module majeur, créez ou mettez à jour le fichier `NIYYAH.md` dans le dossier concerné.
+Réfléchissez : Pourquoi cette fonctionnalité est-elle nécessaire ? Sert-elle le bien commun (Nafa') ?
+Purifiez : Assurez-vous que votre intention est sincère (Ikhlas), loin de l'orgueil ou de la simple recherche de profit.
+Déclarez : Si vous ajoutez un module majeur, créez ou mettez à jour le fichier NIYYAH.md dans le dossier concerné.
+2. Le Développement : Excellence (Ihsan) & Éthique
 
-### 2. Le Développement : Excellence (Ihsan) & Éthique
-- **Code Propre :** Suivez les standards TypeScript/React. Un code laid est un code difficile à maintenir.
-- **Respect de la Charte :** Utilisez les couleurs et structures définies (ex: `/server/finance` pour le Vert, `/client/src/education` pour l'Orange).
-- **Zéro Riba/Gharar :** Vérifiez qu'aucune logique financière ne contourne les principes de la Charia.
-- **Souveraineté :** Aucune donnée ne doit être envoyée vers des serveurs hors Suisse (sauf exception validée).
+Code Propre : Suivez les standards TypeScript/React. Un code laid est un code difficile à maintenir.
+Respect de la Charte : Utilisez les couleurs et structures définies (ex: /server/finance pour le Vert, /client/src/education pour l'Orange).
+Zéro Riba/Gharar : Vérifiez qu'aucune logique financière ne contourne les principes de la Charia.
+Souveraineté : Aucune donnée ne doit être envoyée vers des serveurs hors Suisse (sauf exception validée).
+3. La Submission (Pull Request)
 
-### 3. La Submission (Pull Request)
-- **Tests :** Assurez-vous que tous les tests passent localement.
-- **Audit Éthique :** Le "Gardien Éthique" (CI/CD) vérifiera automatiquement votre code. S'il échoue, corrigez avec humilité.
-- **Message de Commit :** Soyez clair et honnête. Ex: `feat(zakat): ajout calcul précis selon école Maliki`.
+Tests : Assurez-vous que tous les tests passent localement.
+Audit Éthique : Le "Gardien Éthique" (CI/CD) vérifiera automatiquement votre code. S'il échoue, corrigez avec humilité.
+Message de Commit : Soyez clair et honnête. Ex: feat(zakat): ajout calcul précis selon école Maliki.
+4. Après le Merge : Gratitude (Shukr)
 
-### 4. Après le Merge : Gratitude (Shukr)
-- Une fois votre code fusionné, prenez un moment pour remercier Allah d'avoir facilité ce travail.
-- Sachez que chaque utilisateur qui bénéficiera de votre code générera une récompense perpétuelle (Sadaqa Jariya) pour vous, incha Allah.
-
-> "Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
+Une fois votre code fusionné, prenez un moment pour remercier Allah d'avoir facilité ce travail.
+Sachez que chaque utilisateur qui bénéficiera de votre code générera une récompense perpétuelle (Sadaqa Jariya) pour vous, incha Allah.
+"Celui qui introduit une bonne tradition en Islam aura sa récompense et celle de tous ceux qui la suivront..." (Muslim)
 
 Merci de faire partie de cette aventure unique. Qu'Allah bénisse vos mains et votre code.
-
-
-
 
