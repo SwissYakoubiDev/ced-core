@@ -1,6 +1,6 @@
 > 🗺️ **Retour à l'index central :** [Voir l'écosystème complet CED HalalTech™](https://github.com/PrettyhowQ/ced-master-index)
 
-# 🟦 CED-NoYau | Infra HalalTech
+# 🟦 CED-Core | Infra HalalTech
 
 ![Version](https://img.shields.io/badge/Version-v2.4.1--AUDITED-27ae60)
 ![Activité](https://img.shields.io/badge/Activité-Intense-2980b9)
