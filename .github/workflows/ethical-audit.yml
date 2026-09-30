@@ -2,7 +2,7 @@ name: 🛡️ Guardian Ethical Audit
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
   push:
     branches: [ main ]
 
@@ -11,35 +11,78 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
+      # --- ÉTAPE 1 : SOUVERAINETÉ ---
       - name: 🚫 Scan for Forbidden Cloud Providers
         run: |
-          echo "🔍 Recherche de dépendances non-souveraines (AWS, Google, OpenAI)..."
-          if grep -r --include="*.ts" --include="*.js" --include="*.py" -E "(aws-sdk|@aws-sdk|googleapis|openai|@azure)" .; then
-            echo "❌ ERREUR CRITIQUE : Détection de fournisseurs Cloud non-souverains interdits par la charte."
+          echo "🔍 Recherche de dépendances non-souveraines (AWS, Google, OpenAI, Azure)..."
+          # On exclut les commentaires simples (//) et les chaînes dans les fichiers de doc (.md)
+          # Si un développeur doit citer un nom interdit dans un commentaire, il doit ajouter "// ALLOWED:"
+          if grep -r --include="*.ts" --include="*.js" --include="*.py" -E "(aws-sdk|@aws-sdk|googleapis|openai|@azure)" . | grep -v "// ALLOWED:" | grep -v ".md"; then
+            echo "❌ ERREUR CRITIQUE : Détection de fournisseurs Cloud non-souverains."
             echo "   Conformité : Uniquement Infomaniak et solutions locales (Ollama)."
+            echo "   Astuce : Si c'est pour un commentaire explicatif, ajoutez '// ALLOWED:' à la fin de la ligne."
             exit 1
           fi
-          echo "✅ Aucun fournisseur cloud interdit détecté."
+          echo "✅ Souveraineté respectée."
 
+      # --- ÉTAPE 2 : INTERDICTION DU GHARAR (HASARD) ---
       - name: 🎲 Scan for Non-Deterministic Finance Code
         run: |
           echo "🔍 Recherche de Math.random() dans les modules financiers..."
-          # On cherche spécifiquement dans les dossiers finance
           if grep -r --include="*.ts" --include="*.js" "Math\.random\(\)" ./server/finance ./client/src/finance ./shared/schema 2>/dev/null; then
             echo "❌ ERREUR CRITIQUE : Usage de Math.random() détecté dans un module financier."
             echo "   Conformité Sharia : Interdiction du Gharar (incertitude/hasard) dans la finance."
-            echo "   Solution : Utiliser un générateur cryptographique sécurisé ou une logique déterministe."
+            echo "   Solution : Utilisez 'crypto.randomBytes' pour un hasard cryptographique ou une logique déterministe."
             exit 1
           fi
-          echo "✅ Aucune incertitude algorithmique détectée dans la finance."
+          echo "✅ Aucune incertitude algorithmique interdite détectée."
 
-      - name: 🔑 Scan for Leaked Secrets
+      # --- ÉTAPE 3 : SÉCURITÉ (SECRETS) ---
+      - name: 🔒 Check for committed .env files
+        run: |
+          if [ -f ".env" ] || [ -f ".env.production" ] || [ -f ".env.local" ]; then
+            echo "❌ ERREUR CRITIQUE : Fichier .env détecté dans le dépôt !"
+            echo "   Les secrets doivent être configurés dans les GitHub Secrets ou le Vault Infomaniak."
+            echo "   Action : Supprimez le fichier et ajoutez-le au .gitignore immédiatement."
+            exit 1
+          fi
+
+      - name: 🔑 Scan for Leaked Secrets (TruffleHog)
         uses: trufflesecurity/trufflehog@main
         with:
           extra_args: --only-verified
-        continue-on-error: true # Warning only to not block if false positive, but alert
+        # Passez à 'false' définitivement une fois l'historique nettoyé des anciennes fuites potentielles
+        continue-on-error: false 
 
-      - name: ✅ Audit Terminé
-        run: echo "🎉 Le code respecte les principes éthiques et de souveraineté de CED HalalTech™."
+      # --- ÉTAPE 4 : ARCHITECTURE (CHARTE COULEUR) ---
+      - name: 🎨 Audit Architecture (Charte Couleur)
+        run: |
+          echo "🔍 Vérification des dépendances croisées interdites..."
+          # Exemple concret : Finance (Vert) ne parle pas à IA (Violet) sans intermédiaire
+          # Ajustez les chemins si votre structure de dossiers diffère légèrement
+          if grep -r "from.*['\"]/.*ai" ./server/finance/ 2>/dev/null; then
+             echo "❌ ERREUR ARCHITECTURE : Le module Finance (🟩) ne peut pas importer le module IA (🟪) directement."
+             echo "   Veuillez utiliser une couche intermédiaire (shared/compliance) pour respecter la Charte Couleur."
+             exit 1
+          fi
+          echo "✅ Architecture et Charte Couleur respectées."
+
+      # --- ÉTAPE 5 : RAPPORT D'AUDIT ---
+      - name: ✅ Génération du Rapport d'Audit
+        if: success()
+        run: |
+          echo "🎉 Le code respecte les principes éthiques et de souveraineté de CED HalalTech™."
+          echo "Date: $(date -u)" > audit-report.txt
+          echo "Commit: ${{ github.sha }}" >> audit-report.txt
+          echo "Status: PASSED" >> audit-report.txt
+          echo "Auditor: GitHub Actions (Ethical Guardian)" >> audit-report.txt
+          
+      - name: 📦 Sauvegarde du Rapport (Artifact)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ethical-audit-report-${{ github.run_number }}
+          path: audit-report.txt
+          retention-days: 90
