@@ -2,6 +2,13 @@
 
 # 🟦 CED-Core | Infra HalalTech
 
+> 🏛️ **Autorité Constitutionnelle** : Ce dépôt de production est strictement soumis à la Constitution Éthique de l'écosystème : **[CED-Umm-AL-Mashari](https://github.com/PrettyhowQ/CED-Umm-AL-Mashari)**.
+>
+> Toute fonctionnalité, tout déploiement et toute modification doivent respecter les **6 Piliers** (Wasatiyyah, Sobriété, Finance Halale).
+> Ce code est "purifié" par le laboratoire **YasCoder** avant d'arriver ici.
+
+---
+
 ![Version](https://img.shields.io/badge/Version-v2.4.1--AUDITED-27ae60)
 ![Activité](https://img.shields.io/badge/Activité-Intense-2980b9)
 ![Licence](https://img.shields.io/badge/Licence-Propriétaire-orange)
