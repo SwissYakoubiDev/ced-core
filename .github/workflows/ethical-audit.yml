@@ -86,3 +86,23 @@ jobs:
           name: ethical-audit-report-${{ github.run_number }}
           path: audit-report.txt
           retention-days: 90
+      # --- ÉTAPE 6 : NOTIFICATION SOUVERAINE (Infomaniak kChat) ---
+      - name: 📩 Envoi du Rapport d'Audit (kChat)
+        if: success()
+        run: |
+          echo "🚀 Envoi du rapport de conformité éthique vers l'équipe..."
+          
+          # Préparation des variables
+          COMMIT_SHA="${{ github.sha }}"
+          
+          # Envoi vers le Webhook kChat (Infomaniak)
+          if [ -n "${{ secrets.KCHAT_WEBHOOK_URL }}" ]; then
+            curl -X POST "${{ secrets.KCHAT_WEBHOOK_URL }}" \
+              -H "Content-Type: application/json" \
+              -d "{
+                \"text\": \"🛡️ **Audit Éthique Réussi (CED-Core)**\\n\\n📅 Date: $(date -u)\\n🔖 Commit: ${COMMIT_SHA:0:7}\\n✅ Status: CONFORME (Sharia, Souveraineté, Sécurité)\\n\\nLe code est validé pour déploiement sur Infomaniak.\\n\\n_Barakah Allahu fik_\"
+              }"
+            echo "✅ Notification envoyée sur kChat avec succès."
+          else
+            echo "⚠️ Attention: Le secret KCHAT_WEBHOOK_URL n'est pas configuré. Notification ignorée."
+          fi
