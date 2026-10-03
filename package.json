@@ -40,9 +40,9 @@
     "tailwindcss-animate": "^1.0.7",
     "wouter": "^3.3.5",
     "ws": "^8.18.0",
-    "zod": "^3.23.8",
+    "zod": "^3.23.8"
   },
- "devDependencies": {
+  "devDependencies": {
     "@types/connect-pg-simple": "^7.0.3",
     "@types/express": "^5.0.0",
     "@types/express-session": "^1.18.0",
