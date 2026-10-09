@@ -1,16 +1,14 @@
-> 🗺️ **Retour à l'index central :** [Voir l'écosystème complet CED HalalTech™](https://github.com/PrettyhowQ/ced-master-index)
-
 # 🟦 CED-Core | Infra HalalTech
 
-![Version](https://img.shields.io/badge/Version-v2.4.1--AUDITED-27ae60)
-![Activité](https://img.shields.io/badge/Activité-Intense-2980b9)
-![Licence](https://img.shields.io/badge/Licence-Propriétaire-orange)
-![Statut](https://img.shields.io/badge/Statut-Privé%20%7C%20Suisse-red)
+![GitHub Release](https://img.shields.io/github/v/release/SwissYakoubiDev/ced-core?label=Version&color=001f3f)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/SwissYakoubiDev/ced-core?label=Derni%C3%A8re%20MAJ&color=2980b9)
+![Licence](https://img.shields.io/badge/licence-Consultation%20%C3%89thique-B10DC9)
+![Statut](https://img.shields.io/badge/statut-Production-2ECC40)
 
 > **🇨🇭 Écosystème Financier & Technologique Conforme Sharia**  
 > 📍 **Localisation :** Genève, Suisse (Hébergé 100% chez Infomaniak)  
 > 🔒 **Conformité :** LPD / RGPD / AAOIFI (Zéro Riba, Zéro Gharar)  
-> 🚀 **Statut :** Production | Version: `2.4.1-AUDITED`
+> 🚀 **Statut :** Production | Version : `2.5.0-AUDITED`
 
 ---
 
